@@ -1,3 +1,4 @@
+const querystring = require('querystring');
 const request = require('request');
 const http = require('http');
 
@@ -7,7 +8,7 @@ const fortifiOrg = 'ORG:FORT:1906:otysu';
 const fortifiApiUser = 'elh6QnRXcEFz-TEST-WFdUd25mMkZp';
 const fortifiApiKey = 'SFpNZllTNnhJdlB0OEwxMlBnaVNmYXJDcjU5YUFo';
 
-let fRequest = request.defaults({baseUrl: fortifiApiUrl, headers: {'X-Fortifi-Org': fortifiOrg}});
+let fRequest = request.defaults({baseUrl: fortifiApiUrl, headers: {'X-Fortifi-Org': fortifiOrg, 'Content-Type': 'application/x-www-form-urlencoded'}});
 
 let tokenData;
 
@@ -15,10 +16,12 @@ const requestHandler = (request, response) =>
 {
   if(request.url === '/')
   {
-    fRequest.get('/brands', function (err, r, body)
-    {
-      response.write(body);
-      response.end('Hello Node.js Server!');
+    fRequest.post({
+      uri: '/customers/FID:CST:1563368294:PwxeLTMWubWs3/contacts',
+        body: querystring.stringify({
+            "email": "email@email.email",
+            "firstName": "first name"
+        }),
     });
   }
 };
