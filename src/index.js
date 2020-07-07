@@ -2,8 +2,7 @@ const querystring = require('querystring');
 const request = require('request');
 const http = require('http');
 
-const fortifiApiUrl = 'http://localhost:9090/v1';
-//const fortifiApiUrl = 'https://api.fortifi.io/v1';
+const fortifiApiUrl = 'https://api.fortifi.io/v1';
 const fortifiOrg = 'ORG:FORT:1906:otysu';
 const fortifiApiUser = 'elh6QnRXcEFz-TEST-WFdUd25mMkZp';
 const fortifiApiKey = 'SFpNZllTNnhJdlB0OEwxMlBnaVNmYXJDcjU5YUFo';
